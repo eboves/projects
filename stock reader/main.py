@@ -31,9 +31,9 @@ import customtkinter as ctk
 #     plt.tight_layout()
 #     plt.show()
 
-# app = ctk.CTk()
-# app.title("My App")
-# app.geometry("400x150")
+app = ctk.CTk()
+app.title("My App")
+app.geometry("400x150")
 
 # entry = ctk.CTkEntry(master=app, placeholder_text="Enter Ticket: TSLA")
 # entry.pack(pady=10)
@@ -41,11 +41,12 @@ import customtkinter as ctk
 # # button = ctk.CTkButton(app, text="my button", command=button_callback)
 # # button.pack(pady=5)
 
-# app.mainloop()
+
 
 
 data = yf.Ticker("AAPL")
 ticket_info = data.info
+
 industry = ticket_info['industry']
 sector = ticket_info['sector']
 ceo_director_info = ticket_info['companyOfficers'][0]
@@ -54,7 +55,12 @@ title = ceo_director_info['title']
 total_revenue = ticket_info["totalRevenue"]
 dividend_yield = ticket_info["dividendYield"]
 free_cash_flow = ticket_info["freeCashflow"]
-total_cash = ticket_info[""]
+# total_cash = ticket_info[""]
+
+
+
+label = ctk.CTkLabel(app, text=ceo_director, fg_color="transparent")
+label.pack(pady=10)
 print(dividend_yield)
 # TODO: get info from the CEO/President of the company and see in how many company it worked
 # print(ceo_director)
@@ -71,3 +77,11 @@ print(dividend_yield)
 # Dividend Yield (💸): 0.0039
 # Total Cash (🏦): 54697000960
 
+
+#TODO: create 2 functions one to deal with the grid and other one with pack when it comes to info. create frames 
+
+
+
+
+
+app.mainloop()
